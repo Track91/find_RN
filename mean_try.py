@@ -1,26 +1,26 @@
 import random
 from statistics import *
-def find_random_number(mot):
+def find_random_number(counter):
     range = 1000
     number = random.randint(0, range)
-    mot = 1
+    counter = 1
     start = range/2
     number_asked = 500
     running = True
     while running:
 
         if number_asked > number:
-            number_asked = int(number_asked - (start/(mot*2)))
+            number_asked = int(number_asked - (start/(counter*2)))
 
         elif number_asked < number:
-            number_asked = int(number_asked + (start/(mot*2)))
+            number_asked = int(number_asked + (start/(counter*2)))
 
         else:
             break
 
-        mot += 1
-    mot -= 1
-    return mot
+        counter += 1
+    counter -= 1
+    return counter
 def get_result():
     result = []
 
