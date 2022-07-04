@@ -1,4 +1,6 @@
 import random
+import math
+import statistics
 from statistics import *
 def find_random_number(counter):
     range = 1000
@@ -19,15 +21,24 @@ def find_random_number(counter):
             break
 
         counter += 1
+
     counter -= 1
     return counter
+
+
 def get_result():
     result = []
 
     for i in range(100000):
         globals()["v" + str(i)] = find_random_number(i)
         result.append(globals()["v" + str(i)])
-    result = mean(result)
-    return result
+    moyenne = statistics.fmean(result)
+    mediane = statistics.median(result)
+    variance = statistics.variance(result)
+    ecart_type = math.sqrt(variance)
+    print('Moyenne : {} \n '
+          'Mediane : {} \n'
+          'Ecart-type : {} '
+          .format(moyenne, mediane, ecart_type))
 
-print(get_result())
+get_result()
