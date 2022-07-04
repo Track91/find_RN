@@ -1,10 +1,10 @@
 import random
 from statistics import *
 def find_random_number(mot):
-
-    number = random.randint(0, 1000)
+    range = 1000
+    number = random.randint(0, range)
     mot = 1
-    start = 500
+    start = range/2
     number_asked = 500
     running = True
     while running:
@@ -24,7 +24,7 @@ def find_random_number(mot):
 def get_result():
     result = []
 
-    for i in range(10000):
+    for i in range(100000):
         globals()["v" + str(i)] = find_random_number(i)
         result.append(globals()["v" + str(i)])
     result = mean(result)
